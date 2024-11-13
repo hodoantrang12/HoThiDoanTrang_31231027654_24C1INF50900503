@@ -2,6 +2,48 @@
 
 internal class Control_flow
 {
+    static void Session04_mau()
+{
+    do
+    {
+        // 1. Máy nghĩ ngẫu nhiên 1 số
+        Random rnd = new Random();
+        int comp_num = rnd.Next(0, 10) + 1; // Lệnh next(0, 10) chỉ lấy từ 0 đến 9, cộng 1 để lấy đúng giá trị 
+                                            //2. keu nguoi dung dua 1 so
+                                            // doan den khi dung
+        int count = 0;
+        bool isContinue = true;
+        do
+        {
+            count++;
+            Console.Write("Bạn đoán số mấy? <1..10>: ");
+            int user_num = int.Parse(Console.ReadLine());
+
+            // 3. Kiểm tra kết quả
+            if (user_num == comp_num)
+            {
+                Console.WriteLine($"Bạn đã đoán trúng sau {count} lần :)");
+                isContinue = false;
+            }
+            else
+            {
+                if (user_num > comp_num)
+                    Console.WriteLine("Số bạn nhập lớn hơn số máy nghĩ.");
+                else
+                    Console.WriteLine("Số bạn nhập bé hơn số máy nghĩ.");
+            }
+        } while (isContinue);
+
+        Console.WriteLine("_______________________");
+        Console.WriteLine("Chơi nữa hoặc C/K >> ");
+        string tl = Console.ReadLine();
+        if (tl.ToUpper().Equals("K"))
+        {
+            Console.WriteLine("Thắng mà không cho gỡ. Lần sau không chơi nữa!");
+            return;
+        }
+    } while (true);
+}
     static void Main()
     {
         //Ex_01();
